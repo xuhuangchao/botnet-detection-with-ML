@@ -1,0 +1,19 @@
+dataset-数据集
+-原始数据集：ISCX-Botnet-2014 Dataset(https://www.unb.ca/cic/datasets/botnet.html)
+
+-ISCX_Botnet-Training.pcap_Flow.csv: pcap文件经过cicflowmeter导出后的csv格式, Training和Testing分别为训练集和测试集
+
+-training_label/testing_label.csv: 打标签0(正常)/1(恶意)后的数据集
+
+-training/testing_label_protocoltype.csv: 按协议类型打标签0-4(No Attack/IRC/HTTP/P2P)后的数据集
+
+-training/testing_label_attacktype.csv: 按攻击类型打标签0-5(其他/IRC/Neris/Rbot/Virut/Zeus)后的数据集
+
+saved_model-最优模型
+-decision-tree.pkl: 恶意/正常流量二分类的最优模型,使用决策树准确率可达81.14%
+-random_forest_attacktype.pkl: 攻击类型多分类的最优模型,使用随机森林分类器准确率可达68.34%
+
+src-代码
+-运行Label.py输出training_label/testing_label.csv->classification.py
+-运行Label_protocol_train/test.py输出training/testing_label_protocoltype.csv->classification_protocoltype.py
+-运行Label_attacktype_train/test.py输出training/testing_label_attacktype.csv->classification_attacktype.py
